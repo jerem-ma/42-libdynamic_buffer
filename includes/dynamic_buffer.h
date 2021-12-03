@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libdynamic_buffer.h                                :+:      :+:    :+:   */
+/*   dynamic_buffer.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 23:13:51 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/03 11:14:45 by jmaia            ###   ########.fr       */
+/*   Created: 2021/12/03 11:09:40 by jmaia             #+#    #+#             */
+/*   Updated: 2021/12/03 11:17:13 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBDYNAMIC_BUFFER_H
-# define LIBDYNAMIC_BUFFER_H
-# include <stddef.h>
+#ifndef DYNAMIC_BUFFER_H
+# define DYNAMIC_BUFFER_H
+# define EXPAND_LEN 10
+# include <stdlib.h>
 
-typedef struct s_dynamic_buffer
-{
-	void			*buffer;
-	unsigned long	i;
-	unsigned long	len;
-	size_t			elem_size;
-}	t_dynamic_buffer;
+# include "libft.h"
+# include "libdynamic_buffer.h"
 
-t_dynamic_buffer	get_buffer(size_t elem_size);
-int					append(t_dynamic_buffer *buffer, void *elem);
-char				*as_str(t_dynamic_buffer *buffer);
+static void			*get_elem_ptr(t_dynamic_buffer *buffer, unsigned long i);
+static int			expand(t_dynamic_buffer *buffer);
 #endif

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libdynamic_buffer.c                                :+:      :+:    :+:   */
+/*   dynamic_buffer.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 23:23:27 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/01 13:03:37 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/03 11:15:50 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libdynamic_buffer.h"
+#include "dynamic_buffer.h"
 
 t_dynamic_buffer	get_buffer(size_t elem_size)
 {
