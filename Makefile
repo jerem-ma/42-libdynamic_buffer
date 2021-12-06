@@ -1,4 +1,4 @@
-SRCS				=	dynamic_buffer.c
+SRCS				=	buffer_convert.c dynamic_buffer.c
 
 OBJS				=	${SRCS:.c=.o}
 

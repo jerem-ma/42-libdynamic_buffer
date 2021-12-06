@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   buffer_convert.c                                   :+:      :+:    :+:   */
+/*   buffer_convert.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/02 11:22:25 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/06 17:38:38 by jmaia            ###   ########.fr       */
+/*   Created: 2021/12/06 17:37:17 by jmaia             #+#    #+#             */
+/*   Updated: 2021/12/06 17:39:11 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "buffer_convert.h"
+#ifndef BUFFER_CONVERT_H
+# define BUFFER_CONVERT_H
 
-char	*as_str(t_dynamic_buffer *buffer)
-{
-	char	*str;
-	size_t	len;
+# include <stdlib.h>
 
-	len = buffer->elem_size * buffer->i;
-	str = malloc(sizeof(*str) * (len + 1));
-	if (!str)
-		return (0);
-	ft_memcpy(str, buffer->buffer, sizeof(*str) * len);
-	str[len] = 0;
-	return (str);
-}
+# include "libdynamic_buffer.h"
+# include "libft.h"
+
+#endif
