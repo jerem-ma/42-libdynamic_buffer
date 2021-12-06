@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 23:23:27 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/03 11:15:50 by jmaia            ###   ########.fr       */
+/*   Updated: 2021/12/06 18:27:12 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ static int	expand(t_dynamic_buffer *buffer)
 	old_size = buffer->elem_size * buffer->len;
 	new_buffer = malloc(buffer->elem_size * new_size);
 	if (!new_buffer)
-		return (0);
+		return (1);
 	ft_memcpy(new_buffer, buffer->buffer, old_size);
 	free(buffer->buffer);
 	buffer->buffer = new_buffer;
 	buffer->len += EXPAND_LEN;
-	return (1);
+	return (0);
 }
