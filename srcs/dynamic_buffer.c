@@ -6,7 +6,7 @@
 /*   By: jmaia <jmaia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 23:23:27 by jmaia             #+#    #+#             */
-/*   Updated: 2021/12/06 18:27:12 by jmaia            ###   ########.fr       */
+/*   Updated: 2022/01/16 18:31:59 by jmaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,24 @@ t_dynamic_buffer	get_buffer(size_t elem_size)
 	buffer.len = EXPAND_LEN;
 	buffer.elem_size = elem_size;
 	return (buffer);
+}
+
+int	free_buffer(t_dynamic_buffer **buffer, void (*del)(void *))
+{
+	unsigned long	i;
+
+	if (!buffer || !*buffer)
+		return (1);
+	if (del)
+	{
+		i = 0;
+		while (i < (*buffer)->i)
+			del(get_elem_ptr(*buffer, i++));
+	}
+	free((*buffer)->buffer);
+	free(*buffer);
+	*buffer = 0;
+	return (1);
 }
 
 int	append(t_dynamic_buffer *buffer, void *elem)
